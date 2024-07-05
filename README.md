@@ -6,4 +6,6 @@ Showcase of DBT functionality with a toy dataset
 python -m venv venv
 source venv/bin/activate
 pip install --no-deps -r requirements.txt
+dbt --version
+
 ```
