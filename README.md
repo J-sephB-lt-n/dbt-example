@@ -22,6 +22,14 @@ Specific features I want to document:
 
 - Source data freshness warnings
 
+- Singular data tests
+
+- Generic data tests
+
+- Unit tests
+
+- Dev/prod environment split
+
 ```bash
 python -m venv venv
 source venv/bin/activate
@@ -30,9 +38,10 @@ dbt --version
 dbt debug # check that everything set up correctly
 
 python -m simdata.init_db --db_name 'dev'
-
+dbt run
+dbt test
 dbt clean
-
+rm databases/*
 ```
 
 Although it is outside the repo, my ~/.dbt/profiles.yml looks like this:
@@ -44,5 +53,5 @@ dbt_example:
     dev:
       type: duckdb
       path: "databases/dev.duckdb"
-      schema: temp
+      schema: main # default target schema
 ```
