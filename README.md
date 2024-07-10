@@ -2,7 +2,9 @@
 
 showcase of dbt functionality with a toy dataset
 
-why use dbt? because it encourages and facilitates data warehouse and software best practices through it's design:
+I am using a local DuckDB database.
+
+Why use dbt? because it encourages and facilitates data warehouse and software best practices through it's design:
 
 - snapshotting (is this data lineage?)
 
@@ -15,6 +17,8 @@ why use dbt? because it encourages and facilitates data warehouse and software b
 - separation of environments (e.g. dev, staging, prod etc.)
 
 - dry
+
+- Version control
 
 specific features i want to document:
 
@@ -41,11 +45,11 @@ pip install --no-deps -r requirements.txt
 dbt --version
 dbt debug # check that everything set up correctly
 
-python -m simdata.init_db --db_name 'dev'
-dbt run
-dbt test
-dbt clean
-rm databases/*
+python -m simdata.init_db --db_name 'dev' # creates data in database databases/dev.duckdb
+dbt run # run dbt models
+dbt test # run dbt tests
+dbt clean # clean up dbt project
+rm databases/* # remove databases
 ```
 
 although it is outside the repo, my ~/.dbt/profiles.yml looks like this:
@@ -63,3 +67,4 @@ dbt_example:
 here are links to specific things in this project:
 
 - [A custom generic data test](./tests/generic/test_is_valid_id.sql) (you can see it applied [here](./models/staging/data_tests.yml))
+  - You can run `python -m simdata.add_non_valid_order_id --db_name dev` to add a non-valid ID into the source data if you want to see the test fail (you will need to run `dbt run` before `dbt test` in order to see the test fail)
