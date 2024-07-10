@@ -4,7 +4,13 @@ models:
   - name: orders
     columns:
       - name: order_id
-        tests:
+        data_tests:
           - unique
           - not_null
           - is_valid_id # custom test defined in tests/generic/test_is_valid_id.sql
+  - name: users
+    columns:
+      - name: user_email_address
+        data_tests:
+          - unique
+          - not_null
