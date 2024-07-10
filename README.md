@@ -25,6 +25,8 @@ dbt debug # check that everything set up correctly
 
 python -m simdata.init_db --db_name 'dev'
 
+dbt clean
+
 ```
 
 Although it is outside the repo, my ~/.dbt/profiles.yml looks like this:
@@ -36,8 +38,5 @@ dbt_example:
     dev:
       type: duckdb
       path: "databases/dev.duckdb"
-```
-
-```
-
+      schema: temp
 ```
