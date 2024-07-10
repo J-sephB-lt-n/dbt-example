@@ -1,34 +1,38 @@
 # dbt-example
 
-Showcase of DBT functionality with a toy dataset
+showcase of dbt functionality with a toy dataset
 
-Why use DBT? Because it encourages and facilitates data warehouse and software best practices through it's design:
+why use dbt? because it encourages and facilitates data warehouse and software best practices through it's design:
 
-- Snapshotting (is this data lineage?)
+- snapshotting (is this data lineage?)
 
-- Documentation
+- documentation
 
-- Testing
+- testing
 
-- Modularisation
+- modularisation
 
-- Separation of environments (e.g. dev, staging, prod etc.)
+- separation of environments (e.g. dev, staging, prod etc.)
 
-- DRY
+- dry
 
-Specific features I want to document:
+specific features i want to document:
 
-- Snapshots
+- snapshots
 
-- Source data freshness warnings
+- source data freshness warnings
 
-- Singular data tests
+- singular data tests
 
-- Generic data tests
+- generic data tests
 
-- Unit tests
+  - all 4 of the builtin one
 
-- Dev/prod environment split
+  - define 1 myself (e.g. valid_id)
+
+- unit tests
+
+- dev/prod environment split
 
 ```bash
 python -m venv venv
@@ -44,7 +48,7 @@ dbt clean
 rm databases/*
 ```
 
-Although it is outside the repo, my ~/.dbt/profiles.yml looks like this:
+although it is outside the repo, my ~/.dbt/profiles.yml looks like this:
 
 ```yaml
 dbt_example:
@@ -55,3 +59,7 @@ dbt_example:
       path: "databases/dev.duckdb"
       schema: main # default target schema
 ```
+
+here are links to specific things in this project:
+
+- [A custom generic data test](./tests/generic/test_is_valid_id.sql) (you can see it applied [here](./models/staging/data_tests.yml))

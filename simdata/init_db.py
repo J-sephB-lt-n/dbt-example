@@ -44,8 +44,8 @@ def create_database(db_name: str) -> None:
         ,   ('email@dre.ss', '2020-03-14 18:27:01')
     ;
     INSERT INTO raw_source_data.orders(order_id, amount, order_datetime)
-    VALUES  ('69410', '800.85', '2025-10-12 06:01:44'),
-            ('69411', '27.95', '2025-10-12 06:05:39')
+    VALUES  ('51469410', '800.85', '2025-10-12 06:01:44'),
+            ('51469411', '27.95', '2025-10-12 06:05:39')
     ;
     """
         )
