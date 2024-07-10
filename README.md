@@ -26,3 +26,18 @@ dbt debug # check that everything set up correctly
 python -m simdata.init_db --db_name 'dev'
 
 ```
+
+Although it is outside the repo, my ~/.dbt/profiles.yml looks like this:
+
+```yaml
+dbt_example:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "databases/dev.duckdb"
+```
+
+```
+
+```
