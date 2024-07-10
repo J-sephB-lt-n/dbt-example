@@ -1,6 +1,9 @@
-WITH ORDERS AS (
-    SELECT * FROM {{ source('data_source_1', 'orders') }}
+with orders as (
+    select * from {{ source('data_source_1', 'orders') }}
 )
 
-SELECT CAST(ORDER_ID AS INTEGER)
-FROM ORDERS
+select
+    cast(order_id as integer) as order_id,
+    cast(amount as decimal(18, 2)) as amount,
+    cast(order_datetime as timestamp_s) as order_datetime
+from orders

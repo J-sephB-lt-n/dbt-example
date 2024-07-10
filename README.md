@@ -16,6 +16,12 @@ Why use DBT? Because it encourages and facilitates data warehouse and software b
 
 - DRY
 
+Specific features I want to document:
+
+- Snapshots
+
+- Source data freshness warnings
+
 ```bash
 python -m venv venv
 source venv/bin/activate
