@@ -7,7 +7,7 @@ def create_database(db_name: str) -> None:
     if not db_name.endswith(".db"):
         db_name += ".db"
 
-    db_path = pathlib.Path(db_name)
+    db_path = pathlib.Path(f"databases/{db_name}")
     if db_path.exists():
         db_path.unlink()
         print(f"Deleted existing database {db_path}")
@@ -30,22 +30,21 @@ def create_database(db_name: str) -> None:
     CREATE TABLE IF NOT EXISTS raw_source_data.orders (
         order_id STRING,
         amount STRING,
-        pay_ref STRING,
+        transaction_id STRING,
         order_datetime STRING
     );
 
     CREATE TABLE IF NOT EXISTS raw_source_data.bank (
-        pay_ref STRING,
+        transaction_id STRING,
         status STRING
     );
-    """
-        )
-        con.execute(
-            """
     INSERT INTO raw_source_data.users(email_address, signup_datetime)
-    VALUES ('andrej.karpathy@gmail.com', '2069-07-24 17:05:55')
+    VALUES 
+            ('a.person@email.com', '2069-07-24 17:05:55')
+        ,   ('some.ne@el.se', '2420-12-24 13-04-15')
+        ,   ('email@dre.ss', '2020-03-14 18:27:01')
     ;
-            """
+    """
         )
 
     print(
