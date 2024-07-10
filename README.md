@@ -62,6 +62,7 @@ dbt_example:
       type: duckdb
       path: "databases/dev.duckdb"
       schema: main # default target schema
+      threads: 4
 ```
 
 here are links to specific things in this project:

@@ -29,6 +29,7 @@ def create_database(db_name: str) -> None:
 
     CREATE TABLE IF NOT EXISTS raw_source_data.orders (
         order_id STRING,
+        user_email_address STRING,
         amount STRING,
         order_datetime STRING
     );
@@ -40,12 +41,12 @@ def create_database(db_name: str) -> None:
     INSERT INTO raw_source_data.users(email_address, signup_datetime)
     VALUES 
             ('a.person@email.com', '2069-07-24 17:05:55')
-        ,   ('some.ne@el.se', '2420-12-24 13-04-15')
+        ,   ('some.ne@el.se', '2420-12-24 13:04:15')
         ,   ('email@dre.ss', '2020-03-14 18:27:01')
     ;
     INSERT INTO raw_source_data.orders(order_id, amount, order_datetime)
-    VALUES  ('51469410', '800.85', '2025-10-12 06:01:44'),
-            ('51469411', '27.95', '2025-10-12 06:05:39')
+    VALUES  ('51469410', 'some.ne@el.se', 800.85', '2025-10-12 06:01:44'),
+            ('51469411', 'email@dre.ss', 27.95', '2025-10-12 06:05:39')
     ;
     """
         )
