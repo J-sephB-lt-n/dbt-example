@@ -15,7 +15,8 @@ def create_database(db_name: str) -> None:
     with duckdb.connect(f"databases/{db_name}") as con:
         con.execute(
             """
-    CREATE SCHEMA IF NOT EXISTS raw_source_data;
+    CREATE SCHEMA IF NOT EXISTS raw_source_data
+    ;
 
     CREATE TABLE IF NOT EXISTS raw_source_data.users (
         email_address STRING,
@@ -28,15 +29,15 @@ def create_database(db_name: str) -> None:
     );
 
     CREATE TABLE IF NOT EXISTS raw_source_data.orders (
-        order_id STRING,
-        user_email_address STRING,
-        amount STRING,
-        order_datetime STRING
+            order_id STRING
+        ,   user_email_address STRING
+        ,   amount STRING
+        ,   order_datetime STRING
     );
 
     CREATE TABLE IF NOT EXISTS raw_source_data.bank (
-        order_id STRING,
-        status STRING
+            order_id STRING
+        ,   status STRING
     );
     INSERT INTO raw_source_data.users(email_address, signup_datetime)
     VALUES 
@@ -44,9 +45,9 @@ def create_database(db_name: str) -> None:
         ,   ('some.ne@el.se', '2420-12-24 13:04:15')
         ,   ('email@dre.ss', '2020-03-14 18:27:01')
     ;
-    INSERT INTO raw_source_data.orders(order_id, amount, order_datetime)
-    VALUES  ('51469410', 'some.ne@el.se', 800.85', '2025-10-12 06:01:44'),
-            ('51469411', 'email@dre.ss', 27.95', '2025-10-12 06:05:39')
+    INSERT INTO raw_source_data.orders(order_id, user_email_address, amount, order_datetime)
+    VALUES  ('51469410', 'some.ne@el.se', '800.85', '2025-10-12 06:01:44')
+        ,   ('51469411', 'email@dre.ss', '27.95', '2025-10-12 06:05:39')
     ;
     """
         )
