@@ -6,3 +6,11 @@ sources:
     tables:
       - name: orders
       - name: users
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+      error_after:
+        count: 48
+        period: hour
+    loaded_at_field: "CAST(_data_loaded_at_utc AS TIMESTAMP)"
