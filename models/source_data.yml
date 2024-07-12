@@ -4,6 +4,7 @@ sources:
   - name: source_data
     schema: raw_source_data
     tables:
+      - name: bank
       - name: orders
       - name: users
     freshness:

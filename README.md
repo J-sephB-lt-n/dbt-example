@@ -46,6 +46,7 @@ dbt --version
 dbt debug # check that everything set up correctly
 
 python -m simdata.init_db --db_name 'dev' # creates data in database databases/dev.duckdb
+dbt dbt source freshness
 dbt run # run dbt models
 dbt test # run dbt tests
 dbt docs generate
