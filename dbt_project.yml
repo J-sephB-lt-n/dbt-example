@@ -32,7 +32,7 @@ models:
     +materialized: view # config this level applies to all models in project
     staging: # config this level applies to /models/staging/ folder
       +schema: staging # output schema
-      +materialized: table
+      +materialized: view
     mart:
       +schema: mart
       +materialized: table
