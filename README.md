@@ -38,6 +38,8 @@ specific features i want to document:
 
 - dev/prod environment split
 
+The DBT best practice guide is amazing: <https://docs.getdbt.com/best-practices>
+
 ```bash
 python -m venv venv
 source venv/bin/activate
@@ -48,7 +50,7 @@ dbt debug # check that everything set up correctly
 python -m simdata.init_db --db_name 'dev' # creates data in database databases/dev.duckdb
 dbt dbt source freshness
 dbt run # run dbt models
-dbt test # run dbt tests
+dbt test
 dbt docs generate
 dbt docs serve
 dbt clean # clean up dbt project

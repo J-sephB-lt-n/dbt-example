@@ -4,5 +4,5 @@ with bank as (
 
 select
     cast(order_id as integer) as order_id,
-    trim(status) as order_status
+    trim(status) as order_pay_status
 from bank

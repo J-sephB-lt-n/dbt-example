@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: order_pay_status
+    columns:
+      - name: order_pay_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              values:
+                ["pending_approval", "successful_payment", "failed", "fraud"]

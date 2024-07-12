@@ -33,3 +33,6 @@ models:
     staging: # config this level applies to /models/staging/ folder
       +schema: staging # output schema
       +materialized: table
+    mart:
+      +schema: mart
+      +materialized: table
