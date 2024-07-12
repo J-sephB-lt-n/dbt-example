@@ -20,3 +20,13 @@ models:
         data_tests:
           - unique
           - not_null
+  - name: bank
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+          - is_valid_id
+          - relationships:
+              to: ref('orders')
+              field: order_id
