@@ -1,5 +1,5 @@
 with orders as (
-    select * from {{ source('data_source_1', 'orders') }}
+    select * from {{ source('source_data', 'orders') }}
 )
 
 select

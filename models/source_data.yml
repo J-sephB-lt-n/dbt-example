@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: data_source_1
+  - name: source_data
     schema: raw_source_data
     tables:
       - name: orders
