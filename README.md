@@ -1,46 +1,28 @@
 # dbt-example
 
-showcase of dbt functionality with a toy dataset
+Showcase of dbt functionality with a toy dataset - I use this repo to remind myself of the features of DBT and how they work.
 
 I am using a local DuckDB database.
 
-Why use dbt? because it encourages and facilitates data warehouse and software best practices through it's design:
+Why use DBT? Because it encourages and facilitates data warehouse and software best practices through it's design:
 
-- snapshotting (is this data lineage?)
+- Data lineage (e.g. logging, snapshots)
 
-- documentation
+- Documentation
 
-- testing
+- Testing
 
-- modularisation
+- Modularisation
 
-- separation of environments (e.g. dev, staging, prod etc.)
+- Separation of environments (e.g. dev, staging, prod)
 
-- dry
+- DRY
 
 - Version control
 
-specific features i want to document:
-
-- snapshots
-
-- source data freshness warnings
-
-- singular data tests
-
-- generic data tests
-
-  - all 4 of the builtin one
-
-  - define 1 myself (e.g. valid_id)
-
-- unit tests
-
-- dev/prod environment split
-
 The DBT best practice guide is amazing: <https://docs.getdbt.com/best-practices>
 
-After running, each step you can see the changes made within the database itself using (e.g. run this in the duckdb cli):
+After running each step, you can see the changes made within the database itself using (e.g. run this in the duckdb cli):
 
 ```sql
 select table_catalog, table_schema, table_name, table_type from information_schema.tables;
@@ -54,10 +36,15 @@ dbt --version
 dbt debug # check that everything set up correctly
 
 python -m simdata.init_db --db_name 'dev' # creates data in database databases/dev.duckdb
-dbt dbt source freshness # check freshness of input data
+dbt source freshness # check freshness of input data
 dbt run # run dbt models
 dbt test # run all tests
+
 dbt snapshot # create snapshot tables
+python -m simdata.update_payment_status_example --db_name 'dev' # adds a row to the bank table so can see pay_status_snapshot table working
+dbt run # refresh pipeline to take into account new row in bank table
+dbt snapshot
+
 dbt docs generate
 dbt docs serve
 

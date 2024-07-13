@@ -10,8 +10,8 @@ def add_non_valid_order_id(db_name: str) -> None:
     with duckdb.connect(f"databases/{db_name}") as con:
         con.execute(
             """
-    INSERT INTO raw_source_data.orders(order_id, user_email_address, amount, order_datetime)
-    VALUES  ('1234567', 'a.person@email.com', '844.50', '2025-10-14 17:05:11')
+    INSERT INTO raw_source_data.orders(_data_loaded_at_utc, order_id, user_email_address, amount, order_datetime)
+    VALUES  ('2345-02-14 06:09:42', '1234567', 'a.person@email.com', '844.50', '2025-10-14 17:05:11')
     ;
     """
         )

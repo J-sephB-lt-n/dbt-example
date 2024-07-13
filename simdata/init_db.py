@@ -46,7 +46,7 @@ def create_database(db_name: str) -> None:
         ,   ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', 'email@dre.ss', '2020-03-14 18:27:01')
     ;
     INSERT INTO raw_source_data.orders(_data_loaded_at_utc, order_id, user_email_address, amount, order_datetime)
-    VALUES  ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M::%S")}', '51469410', 'some.ne@el.se', '800.85', '2025-10-12 06:01:44')
+    VALUES  ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', '51469410', 'some.ne@el.se', '800.85', '2025-10-12 06:01:44')
         ,   ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', '51469411', 'email@dre.ss', '27.95', '2025-10-12 06:05:39')
     ;
     INSERT INTO raw_source_data.bank(_data_loaded_at_utc, order_id, status, entry_datetime)
