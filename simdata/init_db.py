@@ -37,6 +37,7 @@ def create_database(db_name: str) -> None:
             _data_loaded_at_utc STRING
         ,   order_id STRING
         ,   status STRING
+        ,   entry_datetime STRING
     );
     INSERT INTO raw_source_data.users(_data_loaded_at_utc, email_address, signup_datetime)
     VALUES 
@@ -45,11 +46,11 @@ def create_database(db_name: str) -> None:
         ,   ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', 'email@dre.ss', '2020-03-14 18:27:01')
     ;
     INSERT INTO raw_source_data.orders(_data_loaded_at_utc, order_id, user_email_address, amount, order_datetime)
-    VALUES  ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', '51469410', 'some.ne@el.se', '800.85', '2025-10-12 06:01:44')
+    VALUES  ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M::%S")}', '51469410', 'some.ne@el.se', '800.85', '2025-10-12 06:01:44')
         ,   ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', '51469411', 'email@dre.ss', '27.95', '2025-10-12 06:05:39')
     ;
-    INSERT INTO raw_source_data.bank(_data_loaded_at_utc, order_id, status)
-    VALUES  ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', '51469410', 'successful_payment')
+    INSERT INTO raw_source_data.bank(_data_loaded_at_utc, order_id, status, entry_datetime)
+    VALUES  ('{(datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")}', '51469410', 'successful_payment', '2025-10-13 00:00:04')
     ;
     """
         )

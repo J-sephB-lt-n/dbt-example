@@ -40,6 +40,12 @@ specific features i want to document:
 
 The DBT best practice guide is amazing: <https://docs.getdbt.com/best-practices>
 
+After running, each step you can see the changes made within the database itself using (e.g. run this in the duckdb cli):
+
+```sql
+select table_catalog, table_schema, table_name, table_type from information_schema.tables;
+```
+
 ```bash
 python -m venv venv
 source venv/bin/activate
@@ -48,11 +54,14 @@ dbt --version
 dbt debug # check that everything set up correctly
 
 python -m simdata.init_db --db_name 'dev' # creates data in database databases/dev.duckdb
-dbt dbt source freshness
+dbt dbt source freshness # check freshness of input data
 dbt run # run dbt models
-dbt test
+dbt test # run all tests
+dbt snapshot # create snapshot tables
 dbt docs generate
 dbt docs serve
+
+# tidy up
 dbt clean # clean up dbt project
 rm databases/* # remove databases
 ```
